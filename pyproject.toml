@@ -11,7 +11,14 @@ packages = [{include = "pdf_scribe"}]
 python = "^3.10"
 pdf2image = "^1.16.2"
 pytesseract = "^0.3.10"
+pillow = "^9.4.0"
+pymupdf = "^1.21.1"
+opencv-python = "^4.7.0.68"
+colorama = "^0.4.6"
 
+
+[tool.poetry.group.dev.dependencies]
+pandas = "^1.5.3"
 
 [build-system]
 requires = ["poetry-core"]

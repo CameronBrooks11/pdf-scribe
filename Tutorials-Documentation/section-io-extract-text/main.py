@@ -1,0 +1,123 @@
+import os  # from native modules
+import fitz  # from PyMuPDF
+import pytesseract  # from pytesseract
+import cv2  # from Opencv
+import io  # from native modules
+from PIL import Image, ImageFile  # from Pillow
+from colorama import Fore  # from native modules
+import platform  # from native modules
+
+ImageFile.LOAD_TRUNCATED_IMAGES = True
+
+# Global variables
+strPDF, textScanned, textScanned, inputTeEx, dirName = "", "", "", "", [
+    "Tutorials-Documentation/extracting-images/images", "Tutorials-Documentation/extracting-images/output_txt"]
+# This creates a directory images where the PDF extracted images will be saved. 
+# An output_txt directory will be created to save the scanned text information as .txt file.
+
+# This method allows for access to the installed tesseract library, and the required files
+def gInUs():
+    # Global var
+    global strPDF
+    global inputTeEx
+    # Print input
+    '''print(Fore.YELLOW + "[.] Add the tesseract.exe local path, your current path is: /usr/bin/tesseract.exe" + Fore.RESET)
+    inputTeEx = input()''' # This line and that above can be used for user input
+    inputTeEx = '/usr/bin/tesseract.exe' # Hardcoded tesseract.exe local path
+    # Print input
+    '''print(Fore.GREEN + "[!] Add the PDF file local path:" + Fore.RESET) 
+    inputUser = input()''' # This line and that above can be used for user input
+    inputUser='Lesson_2_Memory_Mapping.pdf' # Hardcoded PDF file local path
+    extIm(inputUser)
+
+# Extracting images
+def extIm(fileStr):
+    global dirName # Defined at top as "output_txt" which will turn to "output_txt{i}"
+
+    # Open the file
+    pdf_file = fitz.open(fileStr)
+
+    # Create output folder if don't exists
+    for i in dirName:
+        try:
+            os.makedirs(i)
+            print(Fore.GREEN + "[!] Directory ", i,  " Created" + Fore.RESET)
+        except FileExistsError:
+            print(Fore.RED + "[X] Directory ", i, " already exists" + Fore.RESET)
+
+    # Creates a variable to store the names of all files 
+    # in the output images directory list of strings      
+    content = os.listdir("Tutorials-Documentation/extracting-images/images")
+
+    # List images if exists and print each one. if not extract all images
+    if(len(content) >= 1):
+        # Print every img in content
+        for i in content:
+            print(Fore.YELLOW + f"This is an image: {i}" + Fore.RESET)
+    else:
+        # Iterate over PDF pages
+        for page_index in range(len(pdf_file)):
+
+            # get the page itself
+            page = pdf_file[page_index]
+            image_list = page.get_images()
+
+            # printing number of images found in this page
+            if image_list:
+                print(Fore.GREEN + f"[+] Found a total of {len(image_list)} images in page {page_index}" + Fore.RESET)
+            else:
+                print(Fore.RED + "[!] No images found on page", page_index, Fore.RESET)
+
+            for (image_index, img) in enumerate(page.get_images(), start=1):
+                # get the XREF of the image
+                xref = img[0]
+                # extract the image bytes
+                base_image = pdf_file.extractImage(xref)
+                image_bytes = base_image["image"]
+                # get the image extension
+                image_ext = base_image["ext"]
+                # load it to PIL
+                image = Image.open(io.BytesIO(image_bytes))
+                # save it to local disk
+                image.save(open(f"Tutorials-Documentation/extracting-images/images/image{page_index+1}_{image_index}.{image_ext}", "wb"))
+    reImg()
+
+
+def reImg():
+    # Global var
+    global textScanned
+    global dirName
+    global inputTeEx
+
+    pytesseract.pytesseract.tesseract_cmd = f"{inputTeEx}"
+
+    # List the images
+    content = os.listdir('Tutorials-Documentation/extracting-images/images')
+
+    for i in range(len(content)):
+        # Reading each image in images
+        image = cv2.imread(f'Tutorials-Documentation/extracting-images/images/{content[i]}')
+
+        # Scan text from image 
+        print(Fore.YELLOW + f"[.] Scan text from {content[i]}" + Fore.RESET)
+        text = pytesseract.image_to_string(image, lang='eng')
+
+        # Concate text scanned in a string
+        textScanned += text
+
+        # print
+        print(Fore.GREEN + "[!] Finished scan text" + Fore.RESET)
+
+        # Showing img input
+        cv2.imshow('Image', image)
+        # 0.5 milisecond
+        cv2.waitKey(1000)
+
+    # Create and write file txtResult.txt
+    print(Fore.CYAN + "[.] Writing txtResult.txt" + Fore.RESET)
+    fileTxt = open(f"{dirName[1]}/txtResult.txt", "w")
+    fileTxt.write(textScanned)
+    print(Fore.GREEN + "[!] File Writted" + Fore.RESET)
+
+# Call to fun main
+gInUs()
