@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "pdf-scribe"
+version = "0.1.0"
+description = ""
+authors = ["CameronBrooks11 <cambrooks3393@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "pdf_scribe"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pdf2image = "^1.16.2"
+pytesseract = "^0.3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
