@@ -1,14 +1,0 @@
-e Ina memory mapped microprocessor, all the peripherals
-occupy the same memory space as the data (and the instruc-
-tions, in a von Neumann architecture).
-
-The ARM®Cortex-A9 microprocessor uses memory mapping. A
-major advantage of memory mapped devices is in simplicity: read-
-ing from an input device (a bank of switches, for example, or some-
-thing more complicated) or writing to an output device (a set of
-LEDs, for example, or something more complicated) is done exactly
-the same way, and with exactly the same opcodes, as reading from
-or writing to memory.
-
-25
-

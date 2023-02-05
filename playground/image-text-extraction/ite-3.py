@@ -1,19 +1,25 @@
+from PIL import Image
 import PyPDF2
 import pytesseract
 import cv2
 import numpy as np
 
-# Load the PDF file
-pdf_file = PyPDF2.PdfReader(open('tests/test-files/Lesson_2_Memory_Mapping.pdf', 'rb'))
+# Path the PDF file
+pdf_file = 'tests/test-files/Lesson_2_Memory_Mapping.pdf'
+
+# Read the number of pages in PDF file by finding the length of the page list
+numpages = len(PyPDF2.PdfReader(open('tests/test-files/Lesson_2_Memory_Mapping.pdf', 'rb')).pages)
+
 
 # Initialize a list to store the bounding boxes
 boxes = []
 
 # Loop through each page of the PDF
-for page_num in range(len(pdf_file.pages)):  
+for page_num in range(numpages):  
     # Extract the text and images from the page
     page = pdf_file.pages[page_num] 
-    text = pytesseract.image_to_data(pdf_file, output_type='data.frame')
+    #text = pytesseract.image_to_data(Image.open(pdf_file), output_type='data.frame')
+    text = pytesseract.image_to_data(Image.open(pdf_file))
     images = page.extract_images()
     
     # Find the bounding boxes for each paragraph in the page

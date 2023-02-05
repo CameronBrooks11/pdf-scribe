@@ -1,7 +1,7 @@
 import pytesseract
 from pdf2image import convert_from_path
 
-inputfile='test-files/Lesson_2_Memory_Mapping.pdf'
+inputfile='tests/test-files/Lesson_2_Memory_Mapping.pdf'
 outputfile_name=inputfile.replace('.pdf', '.txt')
 
 # convert PDF to image
