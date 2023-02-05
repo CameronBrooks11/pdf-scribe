@@ -1,0 +1,38 @@
+from the memory circuit in Figure 1 that nothing in memory
+is capable of putting information onto the address bus.
+
+The memory circuit in Figure 1 only allows the load operation,
+so it is not a circuit with full functionality. !
+
+To allow the CPU to store to memory, the circuit in Figure 1
+should provide a second set of tri-state drivers pointing from
+the data bus into the memory, and additional combinational
+logic to ensure that when a memory cell is selected, either
+only one of the two tri-state drivers are active, or there is an
+additional control on the memory cell itself to select whether
+data is being written or read.
+
+Some sort of global “memory enable” bit may also be neces-
+sary if the data bus is used for other purposes — the address
+line will always have a valid address (as (000). is a valid ad-
+dress) regardless of whether or not the CPU wants to do any-
+thing with the memory.
+
+Furthermore, note that there is not necessarily any correlation be-
+tween the size of the address bus (the laughably small, but easy
+to draw, value of 3 is used in Figure 1) and the size of the data bus
+(just referenced as n in Figure 1).
+
+e Most microcontrollers have byte addressable memory, where
+the memory cell (and consequently the data bus) are eight
+bits wide.
+
+e Some microcontrollers have word addressable memory, where
+either memory cells are larger than a byte, or (more com-
+monly) multiple byte-sized memory cells are grouped under
+
+3
+
+1 Because I (J. McLeod) am lazy and the figure
+is already cluttered enough.
+

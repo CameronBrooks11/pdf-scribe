@@ -1,0 +1,22 @@
+e This is probably a terrible idea... but a CPU doesn’t know any
+
+better. 2 2 The compiler for the ARM®Cortex-A9 that we
+. . . will use in this course is sophisticated enough
+Finally, we will always use hex or binary for addresses (and usu- to have some protection against doing these sort
+ally hex, since addresses can be quite large). It never makes sense of shenanigans, but it is still good practice to
+
+: : carefully check your code!
+to use a decimal value for an address. We will always use hex or » »
+
+binary for opcodes. It never makes sense to talk about an opcode as
+a decimal value. Furthermore, we will typically avoid talking about
+opcodes in numeric form whenever possible. Human-readable
+assembly language is difficult enough! Data, however, can be dis-
+cussed as a hex, binary, or decimal number, depending on what
+kind of data it is.
+
+e This distinction is important when writing code for a micro-
+controller. For example, the compiler will not accept an ad-
+dress written as a decimal number, but often it will accept
+(and properly convert) a decimal value stored as data.
+

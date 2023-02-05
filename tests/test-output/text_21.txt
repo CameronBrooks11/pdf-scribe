@@ -1,0 +1,34 @@
+ROM Architecture
+
+ROM is non-volatile (or persistent), retaining information even
+when powered off. For this reason ROM must be implemented
+
+by physically modifying a circuit. The simplest model for 2* x n
+ROM memory just uses a k: x 2* decoder to generate 2" minterm
+signals from the k inputs, then have each of the n memory outputs
+connected to a 2'-input OR gate.
+
+e The statement “each memory address from 0 to 2" — 1 contains
+n-bits of data” is the same as saying “each of the n-bits of data
+is a Boolean function of k inputs”.
+
+e Consequently, “storing data” in the ROM block means de-
+ciding whether to connect one of the inputs of the 2*-input
+OR gates to the equivalent decoder minterm, or whether to
+ground that input.
+
+This probably sounds confusing, but it isn’t that bad. The approach
+to ROM memory is to draw a grid of horizontal decoder outputs
+and vertical OR gate inputs, then indicate where connections should
+be made. If no explicit connections is shown, the corresponding
+wire in the bus is considered grounded. ROM memory is conceptu-
+ally simpler than RAM memory because the CPU does not have the
+ability to store data to the ROM — the data present in the ROM is a
+consequence of how the circuit is physically wired.
+
+An example of a ROM block is shown in Figure 6. From this dia-
+gram hopefully you see that we can make truly persistent ROM
+— memory that really cannot be rewritten — by physically wiring
+
+21
+

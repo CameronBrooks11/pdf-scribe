@@ -1,0 +1,33 @@
+Memory Decoding
+
+A Harvard architecture I/O mapped microprocessor will have an
+excessive amount of separate buses all connecting different devices
+to the CPU. It may give the hardware engineering a headache, but
+programming the microprocessor is straightforward. A von Neu-
+man architecture memory mapped microprocessor, however, has
+only one address bus and only one data bus connecting to a variety
+of different devices. It makes the hardware engineering easier, but
+presents us with a challenge: How do all of these different devices know
+when it is their turn to talk? This problem is solved by the following
+steps:
+
+1. Choose a memory map. This is the decision of which block of
+addresses to assign to RAM, ROM, and I/O.
+
+2. Use low-order address bits to select locations within each device.
+If the address bus is 16 bits, and it is connected toa 8K x 8
+RAM chip, then the lowest 13 address bits go into the chip (as
+8K = 233),
+
+3. Design combinational logic using the high-order address bits
+to control the chip enables to select that particular chip.
+
+Often these steps are already done in an off-the-shelf microcon-
+troller, although some microcontrollers have a memory map that
+can be dynamically configurable. Even though you can get a lot
+done with a good microcontroller without messing around with
+the memory map, it is still important to study this subject as it is an
+excellent exam problem!
+
+26
+

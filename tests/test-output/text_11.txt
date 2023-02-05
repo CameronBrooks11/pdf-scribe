@@ -1,0 +1,34 @@
+Program Execution & Hardware
+
+As we have discussed, the CPU has a special register called the
+program counter (pc) that keeps track of the current position in the
+program currently running. The CPU also has several other general
+purpose registers for storing and manipulating data during the
+program execution. Imagine we wish to run the following program:
+
+1. Compute the sum S = 2+3
+2. Store that sum S in memory at address 0x2000.
+
+Pretty intense, eh? I bet Microsoft will hire me to work on Win-
+dows 12, any day now! This program is pretty simple, but the CPU
+can’t simply add two actual numbers together. The CPU only has
+one “hand” — the data bus — for holding a number. So the simple
+program above has to be expanded to four steps:
+
+1. Move the data 2 in a CPU register, say r0.
+
+2. Add the data 3 to the contents of register r0, store that result
+in register r1.
+
+3. Move the data 0x2000 in register r2.
+
+4. Store the data in register r1 at the memory address in register
+r2.
+
+These steps, written out explicitly in terms of what the CPU is ac-
+tually doing, will hopefully make the ARMv7 assembly code more
+readable. The assembly code and the corresponding opcodes are
+given below.
+
+11
+

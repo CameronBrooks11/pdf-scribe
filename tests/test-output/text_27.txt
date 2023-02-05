@@ -1,0 +1,49 @@
+Memory Mapping
+
+To explain memory mapping in detail, it is best to present a simple
+example. Consider a von Neumann memory mapped system with
+4K of memory space. Since 4K = 2? x 2!°, this system must have
+an address bus with 12 lines. In hex, these are the addresses from
+0x000 to OxFFF. In this address space we have a 2K x 8 RAM chip
+and a 2K x 8 ROM chip
+
+e Since 2K + 2K = 4K, these two chips completely fill the
+memory space available.
+
+ 
+
+e However it is completely up to us which specific 2 K memory
+
+ 
+
+ 
+
+ 
+
+ 
+
+addresses are assigned to the ROM chip (and the remaining ROM | OxFFF
+go to the RAM chip).
+OxA00 ---->
+e Unless you are a sociopath, you will also recognize that the 0x800
+only practical option is to assign a contiguous block of ad- RAM | 0x7FF
+dresses to each chip.
+0x200 ----+|
+As an arbitrary design choice, we will put the RAM chip at the “bot- 0x000
+tom” of the memory space, using addresses 0x000 to 0x7FF. The at |
+
+ROM chip will then go at the “top” of the memory space, using
+addresses 0x800 to 0xFFF. This is shown schematically in Figure 8.
+Typically memory maps are drawn vertically this way, with the Figure 8: Memory map used in the example.
+lowest address at the bottom and the highest address on the top.
+
+However, I reserve the right to draw memory maps sideways, es-
+
+pecially when the memory maps with very large address space is
+
+large.
+
+D[8]
+
+27
+

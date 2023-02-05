@@ -1,0 +1,222 @@
+pe
+
+r3
+
+r2
+
+ri
+
+rd
+
+Understanding the register model of a CPU is helpful for writing
+
+Line 4: Fetch, Decode, and Execute instruction str ri,
+
+ 
+
+0x0000000C
+
+ 
+
+ 
+
+0x00000000
+
+ 
+
+ 
+
+0x00002000
+
+ 
+
+ 
+
+0x00000005
+
+ 
+
+ 
+
+ 
+
+0x00000002
+
+ 
+
+ 
+
+Fetch & Decode
+
+ 
+
+ 
+
+OxAAAAAAAA
+
+ 
+
+ 
+
+'——+ |0xE5821000
+
+ 
+
+ 
+
+0xE2801003
+
+ 
+
+ 
+
+OxE3A00002
+
+ 
+
+ 
+
+OxE3A02A02
+
+ 
+
+ 
+
+ 
+
+0x2000
+
+0x000C
+
+0x0008
+
+0x0004
+
+0x0000
+
+[r2]
+
+pe
+
+r3
+
+r2
+
+ri
+
+rd
+
+ 
+
+0x00000010
+
++~— Increment
+
+ 
+
+ 
+
+0x00000000
+
+Execute
+
+  
+
+ 
+
+ 
+
+0x00002000
+
+ 
+
+ 
+
+ 
+
+0x00000005
+
+ 
+
+ 
+
+ 
+
+0x00000002
+
+ 
+
+ 
+
+code in Assembly language, because it clarifies the limitations of
+computer hardware. In higher-level programming languages, or
+
+when doing our math homework on paper, we are used to writing
+
+things like « = 2(7+ 5), and treating that as a single step. Buta
+
+CPU can’t keep track of three numbers (or two operations, for that
+
+ 
+
+0x00000005
+
+ 
+
+ 
+
+0xE5821000
+
+ 
+
+ 
+
+0xE2801003
+
+ 
+
+ 
+
+OxE3A00002
+
+ 
+
+ 
+
+ 
+
+OxE3A02A02
+
+ 
+
+ 
+
+0x2000
+
+0x000C
+
+0x0008
+
+0x0004
+
+0x0000
+
+Figure 3: A schematic representation of how
+a simple program is executed in hardware.
+The fetch and decode steps are combined and
+simplified; in reality a large circuit acting as
+
+a look-up table would be used to decode the
+
+machine code instruction. Also the ALU would
+
+be used to increment pc after each instruction
+
+matter) at once; they must be stored in a register while the CPU is
+working with them.
+
+14
+
+(effectively executing add pc, pc, #4) but this
+is not explicitly shown.
+

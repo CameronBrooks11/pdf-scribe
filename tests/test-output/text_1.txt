@@ -1,0 +1,25 @@
+Memory & Memory Mapping
+
+Profs. John McLeod & Arash Reyhani
+ECE3375, Winter 2023
+
+This lesson provides some basic information about
+memory in computer systems, and introduces memory
+mapping. Memory mapping is a very common and use-
+ful technique used to assign the memory address space
+to different physical devices. Clever students will rec-
+ognize that memory mapping is a subject that is highly
+likely to be seen on the midterm and final exams.
+
+Introduction to Memory
+
+For our purposes, memory can be thought of as a long series of
+cells, each cell can store the same fundamental quantity of data.
+
+e As previously mentioned, memory cells are most commonly
+one byte in width.
+
+Each cell is identified by an address and contains a number. An
+
+1
+

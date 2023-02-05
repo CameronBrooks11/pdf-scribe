@@ -1,0 +1,66 @@
+RAM Architecture
+Note that in ECE2277 we used “load” to refer
+
+The fastest and most stable form of RAM uses D flip-flops. A 1-bit to writing data tothe flip flop. nth
+“1: . O Writin ata to the flip-flop. 1n this course we
+memory cell must have the capability to be enabled/disabled, to allt perspective of the CPU, so “load” is
+allow the CPU to load it’s memory content, and to allow the CPU used to refer to reading data from memory into the
+6 : hi CPU. Of course the CPU stores this data in it’s
+to store new memory to the cell. The basic structure of a 1-bit own flip-flops (in registers).
+memory cell of RAM is shown in Figure 4.
+
+6
+
+Selec
+
+I
+
+Input e—+| -— Output
+
+I
+
+Read/Write
+
+Read/Write
+
+ 
+
+Input
+
+ 
+
+ 
+
+ 
+
+Clock
+
+Select
+
+ 
+
+Figure 4: Circuit construction of a 1-bit memory
+
+ 
+
+This memory circuit has the following operation: cell of RAM using a D flip-flop, and again as a
+. . . simple block. Note that the clock input is not ex-
+e When Select= 1 and Read/Write= 1 the value Q in the flip- plicitly shown in the block diagram (as all parts
+
+flop is available on the Output line. The Input line is ignored. _ of the microcomputer have the same clock). An
+alternative construction using more gates and a
+
+This is the load operation. SR latch is shown in Prof. Reyhani’s notes (and
+
+e When Select= 1 and Read/Write= 0 the flip-flop excitation Originally from the ECE2277 textbook).
+Dis set to the value of the Input line on the subsequent clock
+cycle. The Output line is 0 regardless of the value of @. This is
+the store operation.
+
+e When Select= 0 the Input line is ignored and the Output line
+is always 0 regardless of the value of Q.
+
+ 
+
+18
+

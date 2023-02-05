@@ -1,0 +1,40 @@
+Chip Select Logic
+
+To continue the above example, as each of these memory chips has
+2K of memory cells, they need 11 input lines for the address bus,
+and both will have an 8 input/output lines for the data bus. What
+happens if we try to retrieve the number stored at address 0xA00?
+
+e The address 0xA00 in binary is 0b1010 0000 0000.
+
+e However, as each memory chip accepts only the 11 lowest-
+order lines from the address bus, both memory chips will
+recieve a signal of 0b010 0000 0000, which means that the
+RAM chip will try to return the number at 0x200 as well.
+
+e We can’t have two numbers on the data bus at the same time!
+
+It is a problem if both memory chips try to “talk” at the same time,
+since there is only one shared data bus.
+
+e The solution is to use the remaining high-order address bit as
+a chip select (CS) to specify which memory chip to enable.
+
+The RAM chip accepts addresses from 0x000 to 0x7FF, giving us the
+a range in binary of:
+Address bit Qa11 Qji9 Ag Ag a7 ag a5 A, AZ Ag A, Ag
+
+Lowest 0 0 0 0 0 0 0 0 0 0 0 0
+Highest O 1 2 2 21 212122 121éd%41é6%421
+
+ 
+
+ 
+
+Equivalent O ¥% xX x x x xX X X xX x x
+
+As shown above, all possible values of the 11 lowest-order bits must
+be accepted by the RAM chip, so we can replace these with “don’t-
+
+28
+

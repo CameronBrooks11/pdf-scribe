@@ -1,0 +1,33 @@
+pretty clear that we will need two chips to store the desired
+RAM memory space.
+
+Alternatively, we can convert the size of the RAM chip to hex-
+adecimal:
+
+4K = (2?)(2!°) = 2 = (2")(2*)(2) = 0x1000.
+Since 2 x 0x1000 = 0x2000 it is also clear by this method that
+we need to two chips for the RAM.
+
+e The total address space of RAM (0x0000 to 0x1FFF) needs
+to get divided between the two chips. The only sensi-
+ble choice is to have one chip take the first half of the
+addresses (0x0000 to 0Ox0FFF) and the second take the
+second half (0x1000 to 0x1FFF).
+
+For the ROM, we have:
+(OxFFFF — 0xA000) + 1 = 0x6000 = 3(2')(2")(2")(2")
+
+= 3x 28 =3 x (2°)(2'°) = 24K.
+We therefore need three 8 Kx8 ROM chips to store the desired
+ROM memory space.
+
+Again we could also convert the size of the ROM chip to hex-
+adecimal:
+
+8K = (23)(2!°) = 2!8 = 2(24)(2")(2") = 0x2000.
+
+Since 3 x 0x2000 = 0x6000 it is also clear by this method that
+we need to three chips for the ROM.
+
+32
+

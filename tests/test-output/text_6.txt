@@ -1,0 +1,52 @@
+ 
+
+Computer Programs
+
+You have all taken some sort of computer programming course, so
+you are probably familiar with the basics of high-level program-
+ming. You also took ECE2277, so you should be familiar with the
+construction of basic computer hardware, like registers and adders.
+But what happens in between?
+
+e Software is typically written in a high-level language (Python,
+Java, C++, etc.; for this course even C is considered “high-
+level”).
+
+e The compiler converts the program to an optimized low-level
+language (i.e., Assembly).
+
+e The assembler maps the low-level code to machine language,
+a hardware-specific binary representation of instructions and
+data.
+
+For example, consider the following snippet of code written in C. °
+
+ 
+
+int i; // declare loop counter
+
+int total = 0; // declare running sum
+
+for (i = 0; i < 10; i++) // loop 10 times
+
+{
+total += i; // add counter to sum
+
+}
+
+ 
+
+ 
+
+This code snippet calculates the running sum of numbers from 0 to
+9, and stores the result in the integer variable total. This is simple
+enough to understand in human terms, but what exactly does a
+
+6
+
+8 You may not be familiar with C (I think your
+programming course(s) were in Java?), and we
+will review the code later. This example here is
+simple enough you can probably understand it
+even if you are unfamiliar with C syntax.
+

@@ -1,0 +1,60 @@
+tential for user errors — based on what you know about
+programmers (present company excluded, of course)
+you can guess why using the full logic is a better option.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+35
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+A{11..0] D[7..0] — Afi2..] D[7..0]
+RAM 1 ROM 1 Figure 11: Chip selection logic for this example.
+ais
+CSA, aid qf )4 CSO,
+13
+A{11..0] D[7..0] — Afi2..] D[7..0]
+RAM 2 ROM 2
+a5
+CSA» a4 { )4 CSO»
+13 -q
+— Afi2..] D[7..0]
+ROM 3
+a5
+a4 { )4 CSOs;
+a3 4
+

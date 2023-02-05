@@ -1,0 +1,27 @@
+e When Select= 0 or Read/Write= 1, the flip-flop is prevented
+from seeing a clock edge, so the value of Q remains constant.
+
+The Select input is used to to address a memory unit (usually a
+byte, so eight 1-bit RAM cells will have a common Select input).
+To achieve this, a k x 2* decoder is used. This converts a given k-
+bit address (i.e. a binary number) into one of 2" select inputs. The
+RAM block is then 2* x n 1-bit RAM cells, where n is the width of the
+memory unit (again, usually n = 8). An example of a RAM block of
+memory (with n = 4 instead of n = 8, because Iam too lazy to draw
+that many units) is shown in Figure 5.
+
+The RAM block in Figure 5 has a global enable, used to enable the
+2 x 4 decoder. This is advantageous because it allows us to easily
+combine multiple RAM blocks to achieve more memory. As we will
+discuss in more detail when we describe memory mapping, we can
+create a second layer of addresses (with an additional decoder) to
+use to active at a specific memory block; and as only one memory
+block is active at a time, each of these blocks can have the same
+internal addresses.
+
+It is worthwhile studying Figure 5 to understand how (and where)
+data is written to (or read from) for various combinations of inputs,
+control signals, and addresses.
+
+19
+

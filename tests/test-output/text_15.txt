@@ -1,0 +1,34 @@
+Types of Memory
+
+Memory is subdivided into two basic types: random-access mem-
+ory (RAM) and read-only memory (ROM). The name “random-
+access” is a bit archaic, since all modern memory is random-access.
+This is in contrast to extremely obsolete storage technologies like
+relays, mechanical counters, or delay lines, which can only be se-
+quentially accessed.
+
+e We can both read from (i.e., non-destructively access) and write
+to RAM. Both of these processes are “fast” in microcontroller
+terms (i.e. nanoseconds or less).
+
+e RAM is usually volatile, which means it needs an active
+power source to preserve data. It is possible to make non-
+volatile RAM (often using battery back-ups) but these are
+expensive and only used in certain specialist applications.
+
+There are also two common subtypes of RAM: dynamic and static
+RAM (DRAM and SRAM, respectively).
+
+e InDRAM, data is usually retained as a stored charge on a ca-
+pacitor. Each time the data is read the capacitor loses a bit of
+charge, and even when the data is not being read the capaci-
+tor will gradually “leak charge”. Consequently, DRAM must
+be periodically refreshed to preserve data quality. The major
+advantage of DRAM is that it is relatively cheap.
+
+e The RAM listed in the specs for your laptop /tablet/phone/s-
+mart watch/poptart is a type of DRAM.
+
+e inSRAM, data is usually retained in a flip flop. These always
+15
+

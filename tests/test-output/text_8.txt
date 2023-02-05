@@ -1,0 +1,59 @@
+ber contains the opcode and, if necessary, the data.
+
+Memory Address Machine Code
+
+Meaning
+
+ 
+
+0x0000
+0x0000
+0x0000
+0x0000
+0x0000
+0x0000
+
+0000
+0004
+0008
+000C
+0010
+0014
+
+OxE3A0
+OxE3A0
+OxE081
+OxE290
+OxE350
+OxBAFF
+
+0000
+1000
+1000
+0001
+000A
+FFFB
+
+Initialize running sum
+Initialize loop counter
+Increment running sum
+Increment counter
+
+Check if counter reached 10
+
+Table 1: Machine language for ARM®Cortex-A9
+of example assembly code snippet.
+
+Branch back to loop if not
+
+The CPU’s job is to fetch these instructions one at a time, perform
+that instruction, then advance to the next instruction.
+
+e Typically, the next instruction is literally at the next address in
+
+memory.
+
+e Certain instructions only serve to explicitly provide the ad-
+dress for the next instruction, allowing the CPU to branch
+somewhere else.
+

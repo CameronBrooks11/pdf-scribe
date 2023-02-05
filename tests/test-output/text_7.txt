@@ -1,0 +1,57 @@
+computer processor do? For one thing, there is no such thing as
+
+a “named integer variable” in hardware: there is just storage for
+
+binary numbers. An equivalent snippet of assembly code (using
+ARMv/7 assembly syntax) is given below.
+
+ 
+
+ 
+
+mov rO, #0 @ initialize rO for sum
+
+mov ri, #0 initialize ri for counter
+loop: flag for start of loop
+
+add ri, ri, r0 increment running sum
+
+adds rO, rO, #1
+
+cmp rO, #10
+
+blt loop
+
+increment counter
+check if counter reached 10
+branch back to loop if not
+
+©eCeeCeCeC@e
+
+ 
+
+ 
+
+The syntax for assembly is probably unfamiliar, and we will discuss
+it in much more detail in the upcoming lessons. For now it suffices
+to explain that r0 and ri are CPU registers that are explicitly used
+to hold the running sum and the loop counter, respectively. Values
+are added together appropriately (using add and adds), then the
+program branches back to the start of the loop if necessary (with
+b1t). The assembly language code can be converted line-by-line
+into the 32-bit machine language used by the ARM®Cortex-A9, as
+shown in Table 1. Therefore:
+
+e A computer program is a set of instructions in memory, usu-
+
+ally stored sequentially.
+e Each instruction consists of an opcode to tell the CPU what do
+
+to, and often a address and/or some data to tell the CPU what
+
+work with. 4 4 Consequentially, each instruction is often
+. . . . larger than a single memory cell.
+In the machine language example given in Table 1 each 32-bit num-
+
+7
+

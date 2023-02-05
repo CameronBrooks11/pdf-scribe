@@ -1,0 +1,38 @@
+e For example, RAM 1 is uniquely selected when @5@4@13012 =
+1.
+
+e However, given the memory map, RAM in general is
+selected when @; = 1, and selecting between RAM 1
+and RAM 2 can be accomplished using only bit aj2,so a
+simplified chip select logic for RAM 1 is @i5@)2 = 1.
+
+The full and simplified chip select logic is given below.
+
+Chip Full Logic Simplified Logic
+
+ 
+
+RAM 1 @15@ 4413012 G15 412
+RAM 2) @15@ 4413012 G15 412
+ROM 1 ay5@y4013 Q15G14
+ROM 2 = ay5a1413 415014013
+ROM 3 15414413 15414413
+
+Which type of logic should be used? In this course, the full
+logic expression should be used.
+
+e The simplified logic is “cheaper” in terms of requiring
+fewer logic gates. But... if a boneheaded programmer
+tries to read from unmapped memory space, the simpli-
+fied logic can happily return a number from the wrong
+address.
+
+For example, if the programmer tries to read from ad-
+dress 0x2400 = 0b0010 0100 0000 0000, the simplified
+chip select logic will activate RAM 1, and return the num-
+ber stored at address 0x0400.
+
+e So the simplified logic is “expensive” in terms of the po-
+
+34
+

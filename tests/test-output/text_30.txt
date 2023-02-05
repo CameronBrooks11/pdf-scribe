@@ -1,0 +1,60 @@
+be enabled. This is the chip select logic. Designing a combina-
+tional circuit to select all addresses belonging to that chip is equiva-
+lent to finding the logical expression for when the (n—m)-input
+AND evaluates as true for the (n — m) highest order bits that
+identify that memory chip.
+
+e Alternatively, designing a combinational circuit to select all
+addresses belonging to that chip is equivalent to designing a
+decoder to detect a particular (n — m)-bit number.
+
+The connections to the RAM and ROM chips, and the chip select
+logic, is shown in Figure 9. Note that as only one chip can be en-
+abled at a given time, there is no need to use tri-state drivers or any
+other circuitry at the address and data ports. As discussed above,
+and shown in Figure 1, the tri-state driver and other circuitry is
+contained inside each memory chip, at the level of each memory
+cell.
+
+Note that it is not necessary for all memory chips to be the same
+size. The same address lines that are passed internally to larger-
+
+sized memory chips can also be used as the chip select logic for
+
+smaller-sized memory chips without any issues.
+
+30
+
+>——- | alio..0]
+»————— CSO
+
++——_}- | A[10..0)
+
+ 
+
++> csa
+au
+
+ 
+
+ROM
+
+RAM
+
+D[v..0]
+
+Div.)
+
+ 
+
+ 
+
+ 
+
+D{v..0]
+
+Figure 9: A schematic representation of how the
+ROM and RAM memory chips are connected to
+
+the address and data bus.
+

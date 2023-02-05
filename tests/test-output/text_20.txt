@@ -1,0 +1,175 @@
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Is In qr, Io
+
+m3 ° °
+¥ Y
+
+2x4 o ° > o| > o| >
+Decoder t t
+° °
+ma ° °
+v Y
+
+rs ° >| o| >| o| |
+Memory :
+
+Block ———j En
+
+Enable ° °
+my ° e
+v Y
+
+° ° >| o| >| o| >|
+Address __/ * t
+Bus AiAo] * °
+
+2
+
+mo e °
+v v
+
+rs ° >| o| >| o| >|
++ x
+Read/Write . .
+
+U 4 U 4 Lo
+Oz O1 Oo
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 5: Circuit diagram of a 2" x n block of
+RAM memory, where k = 2 and n = 4.
+
