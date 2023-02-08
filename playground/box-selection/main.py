@@ -1,7 +1,21 @@
 from matplotlib.widgets import EllipseSelector, RectangleSelector
 import numpy as np
 import matplotlib.pyplot as plt
+import os
+import shutil
 
+# Paths to the necessary directories
+pdf_inputpath = 'tests/test-files/Lesson_2_Memory_Mapping.pdf'
+temppath = 'playground/bounding-boxes/temp/'
+outputpath = 'tests/test-output/bb/' 
+
+# Clear all files from a directory
+def cleardir(pathname):
+    for root, dirs, files in os.walk(pathname):
+        for f in files:
+            os.unlink(os.path.join(root, f))
+        for d in dirs:
+            shutil.rmtree(os.path.join(root, d))
 
 def select_callback(eclick, erelease):
     """
@@ -46,6 +60,5 @@ for ax, selector_class in zip(axs, [RectangleSelector, EllipseSelector]):
         spancoords='pixels',
         interactive=True))
     fig.canvas.mpl_connect('key_press_event', toggle_selector)
-axs[0].set_title("Press 't' to toggle the selectors on and off.\n"
-                 + axs[0].get_title())
+axs[0].set_title("Press 't' to toggle the selectors on and off.\n" + axs[0].get_title())
 plt.show()
