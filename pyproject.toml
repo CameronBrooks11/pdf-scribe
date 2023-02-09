@@ -17,6 +17,8 @@ opencv-python = "^4.7.0.68"
 colorama = "^0.4.6"
 pypdf2 = "^3.0.1"
 matplotlib = "^3.6.3"
+image2pdf = "^1.0.0"
+addcopyfighandler = "^3.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
