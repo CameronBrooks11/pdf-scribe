@@ -19,6 +19,7 @@ pypdf2 = "^3.0.1"
 matplotlib = "^3.6.3"
 image2pdf = "^1.0.0"
 addcopyfighandler = "^3.0.0"
+mdutils = "^1.5.0"
 
 
 [tool.poetry.group.dev.dependencies]

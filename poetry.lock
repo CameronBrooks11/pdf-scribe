@@ -293,6 +293,17 @@ pyparsing = ">=2.2.1"
 python-dateutil = ">=2.7"
 
 [[package]]
+name = "mdutils"
+version = "1.5.0"
+description = "Useful package for creating Markdown files while executing python code."
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "mdutils-1.5.0.tar.gz", hash = "sha256:fa17c8aa3391a484fab4046ea55dd99bd516d276d73214c7e411042f648e8a90"},
+]
+
+[[package]]
 name = "numpy"
 version = "1.24.2"
 description = "Fundamental package for array computing in Python"
@@ -678,4 +689,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "4c9875b9d96f8bf5dc832b2d0630159636e3b36e2ea3577ba0ff7efaee71e0a2"
+content-hash = "ec8d08b32bcebd10cd1cb8e828cc9f2802495fa9e54cb12c386714e2e3bdf684"

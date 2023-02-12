@@ -20,7 +20,7 @@ class IndexTracker(object):
         self.fig = fig
         self.i = 0
         ax.set_title('use scroll wheel to navigate images')
-        self.update()
+        self.update(self.i)
 
     def onscroll(self, event):
         print("%s %s" % (event.button, event.step))
@@ -33,12 +33,14 @@ class IndexTracker(object):
         self.update(self.i)
 
     def update(self, i):
-        targetimage = temppath + f'/tempimage-{i}.png'
+        targetimage = temppath + f'tempimage-{i}.png'
         print(targetimage)
         self.im = ax.cla()
         image = plt.imread(targetimage)
         self.im = ax.imshow(image)
         self.im.axes.figure.canvas.draw()
+        global j
+        j=self.i
 
 def line_select_callback(eclick, erelease):
     'eclick and erelease are the press and release events'
@@ -56,11 +58,15 @@ def toggle_selector(event):
     if event.key in ['A', 'a'] and not toggle_selector.RS.active:
         print(' RectangleSelector activated.')
         toggle_selector.RS.set_active(True)
-    if event.key in ['S', 's']:
-        print(' Image saved activated.')
-        targetimage = temppath + f'cut-temp/tempimage-{i}.png'
+    if event.key in ['G', 'g']:
+        print(' Image saved.')
+        targetimage = temppath + f'tempimage-{j}.png'
         image = cv2.imread(targetimage)
-        crop_image = image[toggle_selector.RS.geometry()]
+        xgeo = toggle_selector.RS.geometry[1, :].tolist()
+        x = sorted(list(dict.fromkeys(xgeo)))
+        ygeo = toggle_selector.RS.geometry[0, :].tolist()
+        y = sorted(list(dict.fromkeys(ygeo)))
+        crop_image = image[round(x[0]):round(x[1]),round(y[0]):round(y[1])]
         cv2.imshow("Cropped", crop_image)
         cv2.waitKey(0)
 
@@ -69,6 +75,8 @@ def toggle_selector(event):
         print(' Text extracted ')
 
 fig, ax = plt.subplots()                 # make a new plotting range
+global figdpi
+figdpi = fig.dpi
 
 pages = convert_from_path(pdf_inputpath)
 doclen = len(pages)
@@ -82,8 +90,7 @@ tracker = IndexTracker(ax, doclen)
 fig.canvas.mpl_connect('scroll_event', tracker.onscroll)
 
 # drawtype is 'box' or 'line' or 'none'
-toggle_selector.RS = RectangleSelector(ax, line_select_callback,
-                                       drawtype='box', useblit=True,
+toggle_selector.RS = RectangleSelector(ax, line_select_callback, useblit=True,
                                        button=[1, 3],  # don't use middle button
                                        minspanx=5, minspany=5,
                                        spancoords='pixels',
